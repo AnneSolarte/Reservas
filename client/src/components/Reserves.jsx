@@ -33,7 +33,9 @@ export const Reserves = ({ Reserves, setReserves, userLog, room, setRoom, rooms 
         <div className={timetable.reserved ? 'reserved' : 'nonReserved'} key={timetable.id}>
           <h2>{timetable.time}</h2>
           <h3>{timetable.reserved ? 'Reservado por '+ timetable.user : 'No reservado'}</h3>
-          <button onClick={() => reserve(timetable.id, timetable.time)}>{timetable.reserved ? 'Reservado' : 'Reservar'}</button>
+          <button onClick={() => reserve(timetable.id, timetable.time)} disabled={timetable.reserved == true}>
+            {timetable.reserved ? 'Reservado' : 'Reservar'}
+          </button>
         </div>
       ))}
     </div>
